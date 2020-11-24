@@ -2,6 +2,7 @@
 
 namespace Aldrumo\Admin\Providers;
 
+use Aldrumo\Admin\Http\Middleware;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
@@ -25,9 +26,18 @@ class AdminServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->bootMiddleware();
         $this->bootPublishes();
         $this->bootRoutes();
         $this->bootViews();
+    }
+
+    protected function bootMiddleware()
+    {
+        $this->app['router']->aliasMiddleware(
+            'adminCheck',
+            Middleware\AdminCheck::class
+        );
     }
 
     protected function bootPublishes()
@@ -46,7 +56,7 @@ class AdminServiceProvider extends ServiceProvider
 
     protected function bootRoutes()
     {
-        Route::middleware(['web', 'auth:sanctum', 'verified',])
+        Route::middleware(['web', 'auth:sanctum', 'verified', 'adminCheck',])
             ->group(
                 function () {
                     $this->loadRoutesFrom(__DIR__ . '/../../routes/admin.php');
