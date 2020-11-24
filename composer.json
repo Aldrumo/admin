@@ -18,7 +18,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Aldrumo\\Admin\\Providers\\DefaultPageServiceProvider"
+                "Aldrumo\\Admin\\Providers\\AdminServiceProvider"
             ]
         }
     }
