@@ -2,6 +2,8 @@
 
 namespace Aldrumo\Admin\Providers;
 
+use Aldrumo\Admin\AdminManager;
+use Aldrumo\Admin\Contracts\AdminManager as AdminManagerContract;
 use Aldrumo\Admin\Http\Middleware;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
@@ -16,7 +18,7 @@ class AdminServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->registerBindings();
     }
 
     /**
@@ -71,6 +73,16 @@ class AdminServiceProvider extends ServiceProvider
         $this->loadViewsFrom(
             __DIR__ . '/../../resources/views',
             'Admin'
+        );
+    }
+
+    protected function registerBindings()
+    {
+        $this->app->singleton(
+            AdminManagerContract::class,
+            function ($app) {
+                return new AdminManager();
+            }
         );
     }
 }
