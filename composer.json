@@ -1,0 +1,25 @@
+{
+    "name": "aldrumo/admin",
+    "description": "The Aldrump Admin Area",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mike Barlow",
+            "email": "mike@mikebarlow.co.uk"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Aldrumo\\Admin\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Aldrumo\\Admin\\Providers\\DefaultPageServiceProvider"
+            ]
+        }
+    }
+}
