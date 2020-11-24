@@ -2,6 +2,7 @@
 
 namespace Aldrumo\Admin\Http\Middleware;
 
+use Closure;
 use Illuminate\Http\Request;
 
 class AdminCheck
@@ -16,7 +17,7 @@ class AdminCheck
     public function handle(Request $request, Closure $next)
     {
         if (! $request->user()->is_admin) {
-            return redirect()->back();
+            return redirect('/');
         }
 
         return $next($request);
