@@ -25,6 +25,7 @@ class AdminServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->bootPublishes();
+        $this->bootRoutes();
         $this->bootViews();
     }
 
@@ -40,6 +41,16 @@ class AdminServiceProvider extends ServiceProvider
             ],
             'aldrumo-public'
         );
+    }
+
+    protected function bootRoutes()
+    {
+        Route::middleware(['web', 'auth:sanctum', 'verified',])
+            ->group(
+                function () {
+                    $this->loadRoutesFrom(__DIR__ . '/../../routes/admin.php');
+                }
+            );
     }
 
     protected function bootViews()
