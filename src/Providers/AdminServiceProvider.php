@@ -24,13 +24,12 @@ class AdminServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Blade::componentNamespace('Aldrumo\\Admin\\View\\Components', 'Admin');
+        $this->bootPublishes();
+        $this->bootViews();
+    }
 
-        $this->loadViewsFrom(
-            __DIR__ . '/../../resources/views',
-            'Admin'
-        );
-
+    protected function bootPublishes()
+    {
         $this->publishes([
             __DIR__ . '/../../resources/views' => resource_path('views/vendor/' . 'Admin'),
         ], 'aldrumo-Admin-views');
@@ -40,6 +39,16 @@ class AdminServiceProvider extends ServiceProvider
                 __DIR__ . '/../../resources/dist' => public_path('aldrumo/admin'),
             ],
             'aldrumo-public'
+        );
+    }
+
+    protected function bootViews()
+    {
+        Blade::componentNamespace('Aldrumo\\Admin\\View\\Components', 'Admin');
+
+        $this->loadViewsFrom(
+            __DIR__ . '/../../resources/views',
+            'Admin'
         );
     }
 }
