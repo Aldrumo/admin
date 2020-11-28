@@ -2,7 +2,7 @@
 
 namespace Aldrumo\Admin;
 
-use Contracts\AdminManager as AdminContract;
+use Aldrumo\Admin\Contracts\AdminManager as AdminContract;
 use Illuminate\Support\Collection;
 
 class AdminManager implements AdminContract

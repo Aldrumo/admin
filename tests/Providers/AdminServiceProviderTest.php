@@ -3,10 +3,9 @@
 namespace Aldrumo\Admin\Tests\Providers;
 
 use Aldrumo\Admin\AdminManager;
+use Aldrumo\Admin\Contracts\AdminManager as AdminManagerContract;
 use Aldrumo\Admin\Providers\AdminServiceProvider;
-use Aldrumo\Core\Providers\FortifyServiceProvider;
-use Aldrumo\Core\Providers\JetstreamServiceProvider;
-use Aldrumo\Core\Tests\TestCase;
+use Aldrumo\Admin\Tests\TestCase;
 
 class AdminServiceProviderTest extends TestCase
 {
@@ -23,7 +22,7 @@ class AdminServiceProviderTest extends TestCase
     {
         $this->assertInstanceOf(
             AdminManager::class,
-            $this->app[\Aldrumo\Admin\Contracts\AdminManager::class
+            $this->app[AdminManagerContract::class]
         );
     }
 }
