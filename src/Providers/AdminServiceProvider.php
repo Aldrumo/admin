@@ -81,7 +81,9 @@ class AdminServiceProvider extends ServiceProvider
         $this->app->singleton(
             AdminManagerContract::class,
             function ($app) {
-                return new AdminManager();
+                return new AdminManager(
+                    collect([])
+                );
             }
         );
     }
