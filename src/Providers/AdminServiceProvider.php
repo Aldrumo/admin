@@ -5,8 +5,11 @@ namespace Aldrumo\Admin\Providers;
 use Aldrumo\Admin\AdminManager;
 use Aldrumo\Admin\Contracts\AdminManager as AdminManagerContract;
 use Aldrumo\Admin\Http\Middleware;
+use Aldrumo\Admin\Manager\MenuItem;
+use Aldrumo\Admin\View\Composers\AdminMenu;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AdminServiceProvider extends ServiceProvider
@@ -28,10 +31,22 @@ class AdminServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->bootMenu();
         $this->bootMiddleware();
         $this->bootPublishes();
         $this->bootRoutes();
+        $this->bootViewComposers();
         $this->bootViews();
+    }
+
+    protected function bootMenu()
+    {
+        $this->app[AdminManagerContract::class]
+            ->menu()
+            ->push(
+                MenuItem::make('Dashboard', 'admin.dashboard', 0),
+                MenuItem::make('Pages', 'admin.pages.index', 10),
+            );
     }
 
     protected function bootMiddleware()
@@ -64,6 +79,14 @@ class AdminServiceProvider extends ServiceProvider
                     $this->loadRoutesFrom(__DIR__ . '/../../routes/admin.php');
                 }
             );
+    }
+
+    protected function bootViewComposers()
+    {
+        View::composer(
+            'Admin::navigation-dropdown',
+            AdminMenu::class
+        );
     }
 
     protected function bootViews()

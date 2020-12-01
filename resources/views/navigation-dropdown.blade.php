@@ -12,9 +12,9 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('admin.dashboard') }}" :active="request()->routeIs('admin.dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-jet-nav-link>
+                    @foreach ($adminMenu as $item)
+                        @include('Admin::nav-item', ['tag' => 'x-jet-nav-link'])
+                    @endforeach
                 </div>
             </div>
 
@@ -62,7 +62,7 @@
                             @csrf
 
                             <x-jet-dropdown-link href="{{ route('logout') }}"
-                                                onclick="event.preventDefault();
+                                                 onclick="event.preventDefault();
                                                             this.closest('form').submit();">
                                 {{ __('Logout') }}
                             </x-jet-dropdown-link>
@@ -86,9 +86,9 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-jet-responsive-nav-link href="{{ route('admin.dashboard') }}" :active="request()->routeIs('admin.dashboard')">
-                {{ __('Dashboard') }}
-            </x-jet-responsive-nav-link>
+            @foreach ($adminMenu as $item)
+                @include('Admin::nav-item', ['tag' => 'x-jet-responsive-nav-link'])
+            @endforeach
         </div>
 
         <!-- Responsive Settings Options -->
@@ -114,14 +114,14 @@
                     <x-jet-responsive-nav-link href="{{ route('api-tokens.index') }}" :active="request()->routeIs('api-tokens.index')">
                         {{ __('API Tokens') }}
                     </x-jet-responsive-nav-link>
-                @endif
+            @endif
 
-                <!-- Authentication -->
+            <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
 
                     <x-jet-responsive-nav-link href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
+                                               onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                         {{ __('Logout') }}
                     </x-jet-responsive-nav-link>
