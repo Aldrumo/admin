@@ -4,6 +4,7 @@ namespace Aldrumo\Admin\Providers;
 
 use Aldrumo\Admin\AdminManager;
 use Aldrumo\Admin\Contracts\AdminManager as AdminManagerContract;
+use Aldrumo\Admin\Http\Livewire\PagesAdmin;
 use Aldrumo\Admin\Http\Middleware;
 use Aldrumo\Admin\Manager\MenuItem;
 use Aldrumo\Admin\View\Composers\AdminMenu;
@@ -11,6 +12,7 @@ use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use Livewire\Livewire;
 
 class AdminServiceProvider extends ServiceProvider
 {
@@ -31,12 +33,18 @@ class AdminServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->bootLivewire();
         $this->bootMenu();
         $this->bootMiddleware();
         $this->bootPublishes();
         $this->bootRoutes();
         $this->bootViewComposers();
         $this->bootViews();
+    }
+
+    protected function bootLivewire()
+    {
+        Livewire::component('pages-admin', PagesAdmin::class);
     }
 
     protected function bootMenu()
