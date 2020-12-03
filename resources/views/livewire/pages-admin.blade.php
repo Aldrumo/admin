@@ -11,20 +11,22 @@
         </thead>
 
         <tbody class="bg-white">
-        @for($i=0 ; $i <= 4 ; $i++)
+        @forelse ($pages as $page)
             <tr>
                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                     <div class="text-sm leading-5 font-medium text-gray-900">
-                        Homepage
+                        {{ $page->title }}
                     </div>
                 </td>
 
                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                    <div class="text-sm leading-5 text-gray-900">/</div>
+                    <div class="text-sm leading-5 text-gray-900">
+                        {{ $page->slug }}
+                    </div>
                 </td>
 
                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                    @if (($i % 2) == 0)
+                    @if ($page->is_active)
                         <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Active</span>
                     @else
                         <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">Inactive</span>
@@ -32,7 +34,7 @@
                 </td>
 
                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
-                    Dec 1st, 2020 22:54
+                    {{ $page->updated_at->format('M jS Y, H:i') }}
                 </td>
 
                 <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
@@ -45,7 +47,15 @@
                     </button>
                 </td>
             </tr>
-        @endfor
+        @empty
+            <tr>
+                <td colspan="5">
+                    <div class="text-sm leading-5 font-medium text-gray-900">
+                        Create your first page to get started with Aldrumo!
+                    </div>
+                </td>
+            </tr>
+        @endforelse
         </tbody>
     </table>
 </div>
