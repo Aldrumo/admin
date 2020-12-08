@@ -3,7 +3,7 @@
         <div class="relative flex flex-col w-full pointer-events-auto bg-white border border-gray-300 rounded-lg">
             <div class="flex items-start justify-between p-4 border-b border-gray-300 rounded-t">
                 <h5 class="mb-0 text-lg leading-normal">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <button type="button" class="close" wire:click="toggleModel">&times;</button>
             </div>
             <div class="relative flex p-4">
                 ...

@@ -16,6 +16,10 @@ class CreatePage extends Component
 
     public function render()
     {
+        if ($this->modelOpen) {
+            return view('Admin::livewire.pages.create-page-modal');
+        }
+
         return view('Admin::livewire.pages.create-page');
     }
 
