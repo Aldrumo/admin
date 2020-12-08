@@ -4,9 +4,7 @@
     </x-slot>
 
     <x-slot name="sectionMenu">
-        <button class="px-6 py-3 bg-indigo-600 rounded-md text-white font-medium tracking-wide hover:bg-indigo-500">
-            New Page
-        </button>
+        @livewire('create-page')
     </x-slot>
 
     <div class="py-12">
