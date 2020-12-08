@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class CreatePage extends Component
 {
-    public $modelOpen = false;
+    public $modalOpen = false;
 
     public function mount()
     {
@@ -16,15 +16,11 @@ class CreatePage extends Component
 
     public function render()
     {
-        if ($this->modelOpen) {
-            return view('Admin::livewire.pages.create-page-modal');
-        }
-
         return view('Admin::livewire.pages.create-page');
     }
 
     public function toggleModel()
     {
-        $this->modelOpen = ! $this->modelOpen;
+        $this->modalOpen = ! $this->modalOpen;
     }
 }
