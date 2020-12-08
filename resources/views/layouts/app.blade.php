@@ -24,14 +24,12 @@
 
             <!-- Page Heading -->
             <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex flex-row">
+                    <h2 class="font-semibold text-xl text-gray-800 leading-tight flex-grow pt-3">
+                        {{ $header }}
+                    </h2>
 
-                    <div class="">
-                        <button class="px-6 py-3 bg-gray-600 rounded-md text-white font-medium tracking-wide hover:bg-gray-500">Button</button>
-                        <button class="px-6 py-3 bg-red-600 rounded-md text-white font-medium tracking-wide hover:bg-red-500 ml-3">Button</button>
-                        <button class="px-6 py-3 bg-green-600 rounded-md text-white font-medium tracking-wide hover:bg-green-500 ml-3">Button</button>
-                    </div>
+                    {{ $sectionMenu ?? '' }}
                 </div>
             </header>
 

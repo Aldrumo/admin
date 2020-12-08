@@ -3,6 +3,7 @@
 namespace Aldrumo\Admin\Tests;
 
 use Aldrumo\Admin\Providers\AdminServiceProvider;
+use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 
 class TestCase extends BaseTestCase
@@ -11,6 +12,7 @@ class TestCase extends BaseTestCase
     {
         return [
             AdminServiceProvider::class,
+            LivewireServiceProvider::class,
         ];
     }
 }
