@@ -9,6 +9,11 @@ class CreatePage extends Component
 {
     public $modalOpen = false;
 
+    public $page = [
+        'title' => '',
+        'template' => '',
+    ];
+
     public function mount()
     {
         //
