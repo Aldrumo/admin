@@ -1,8 +1,6 @@
 <x-Admin::app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Admin') }}
-        </h2>
+        {{ __('Admin') }}
     </x-slot>
 
     <div class="py-12">

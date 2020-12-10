@@ -32,11 +32,11 @@
                         <div class="block w-full my-5">
                             <x-jet-label for="template" value="{{ __('Template') }}" class="font-bold text-base" />
                             <select id="template" class="form-input rounded-md shadow-sm mt-1 block w-full" wire:model.lazy="page.template">
-                                <option>{{ __('Select Template') }}</option>
-                                <option>Template 1</option>
-                                <option>Template 2</option>
-                                <option>Template 3</option>
-                                <option>Template 4</option>
+                                <option value="">{{ __('Select Template') }}</option>
+
+                                @foreach ($templates as $view => $template)
+                                    <option value="{{ $view }}">{{ $template }}</option>
+                                @endforeach
                             </select>
                             <x-jet-input-error for="template" class="mt-2" />
                         </div>
