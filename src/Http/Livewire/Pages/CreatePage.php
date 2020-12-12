@@ -14,8 +14,9 @@ class CreatePage extends Component
     public $templates = [];
 
     public $page = [
-        'title' => '',
+        'title'    => '',
         'template' => '',
+        'home'     => false,
     ];
 
     protected $validationAttributes = [
@@ -58,6 +59,28 @@ class CreatePage extends Component
             'template' => $this->page['template'],
         ]);
 
+        if ($this->page['home']) {
+            $page->slug = '/';
+        }
 
+        try {
+            $page->save();
+        } catch (\Exception $e) {
+            return session()->flash(
+                'error',
+                __('There was a problem creating the page.')
+            );
+        }
+
+        $this->reset(
+            [
+                'page',
+            ]
+        );
+
+        return session()->flash(
+            'success',
+            __('Page created, redirecting to editor...')
+        );
     }
 }

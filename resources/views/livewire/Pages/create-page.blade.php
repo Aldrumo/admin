@@ -6,7 +6,7 @@
 
     @if ($modalOpen)
         <div class="modal-backdrop show"></div>
-        <div class="modal fixed top-0 left-0 w-full h-full outline-none show" id="exampleModalTwo" tabindex="-1" role="dialog">
+        <div class="modal fixed top-0 left-0 w-full h-full outline-none show" id="createPageModel" tabindex="-1" role="dialog">
             <div class="modal-dialog relative w-auto pointer-events-none max-w-4xl my-8 mx-auto px-4 sm:px-0" role="document">
                 <div class="relative flex flex-col w-full pointer-events-auto bg-white border border-gray-300 rounded-lg">
                     <form wire:submit.prevent="createPage">
@@ -20,18 +20,21 @@
                                 </button>
 
                                 <div wire:loading.remove wire:target="createPage">
-                                    <button type="submit" class="inline-block font-normal text-center px-3 py-2 leading-normal text-base rounded cursor-pointer text-white bg-blue-600">
+                                    <button type="submit" class="inline-block font-normal text-center px-3 py-2 leading-normal text-base rounded cursor-pointer text-white bg-indigo-600">
                                         {{ __('Create') }}
                                     </button>
                                 </div>
                                 <div wire:loading wire:target="createPage">
-                                    <button disabled type="submit" class="inline-block font-normal text-center px-3 py-2 leading-normal text-base rounded cursor-default text-white bg-blue-600">
+                                    <button disabled type="submit" class="inline-block font-normal text-center px-3 py-2 leading-normal text-base rounded cursor-default text-white bg-indigo-600">
                                         {{ __('Creating') }}
                                     </button>
                                 </div>
                             </div>
                         </div>
                         <div class="relative p-4">
+                            <div class="block w-full">
+                                <x-Admin::flash></x-Admin::flash>
+                            </div>
                             <div class="block w-full">
                                 <x-jet-label for="title" value="{{ __('Page Title') }}" class="font-bold text-base" />
                                 <x-jet-input id="title" type="text" class="mt-1 block w-full" autocomplete="title" wire:model.lazy="page.title" />
@@ -48,6 +51,13 @@
                                     @endforeach
                                 </select>
                                 <x-jet-input-error for="page.template" class="mt-2" />
+                            </div>
+
+                            <div class="block w-full">
+                                <label for="is_home" class="flex items-center">
+                                    <input id="is_home" type="checkbox" class="form-checkbox" name="is_home" wire:model="page.home">
+                                    <span class="ml-2 text-gray-700 font-bold text-base">{{ __('Is Homepage?') }}</span>
+                                </label>
                             </div>
                         </div>
                     </form>
