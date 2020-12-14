@@ -38,9 +38,7 @@
                 </td>
 
                 <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
-                    <button class="p-2 bg-indigo-600 rounded-md text-white font-medium tracking-wide hover:bg-indigo-500 ml-3">
-                        <x-heroicon-s-pencil-alt class="w-4 h-4"/>
-                    </button>
+                    <livewire:edit-page :page="$page" :key="'edit-' . $page->id"></livewire:edit-page>
 
                     <button class="p-2 bg-red-600 rounded-md text-white font-medium tracking-wide hover:bg-red-500 ml-3">
                         <x-heroicon-s-trash class="w-4 h-4"/>

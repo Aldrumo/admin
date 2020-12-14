@@ -9,7 +9,14 @@ class PagesAdmin extends Component
 {
     public $pages;
 
+    protected $listeners = ['pageCreated' => 'loadPages'];
+    
     public function mount()
+    {
+        $this->loadPages();
+    }
+
+    public function loadPages()
     {
         $this->pages = Page::orderBy('title', 'asc')->get();
     }

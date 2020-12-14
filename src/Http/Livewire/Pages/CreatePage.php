@@ -78,6 +78,8 @@ class CreatePage extends Component
             ]
         );
 
+        $this->emitTo('pages-admin', 'pageCreated');
+
         return session()->flash(
             'success',
             __('Page created, redirecting to editor...')
