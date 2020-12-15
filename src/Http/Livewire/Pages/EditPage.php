@@ -19,4 +19,14 @@ class EditPage extends Component
     {
         return view('Admin::livewire.pages.edit-page');
     }
+
+    public function toggleModel()
+    {
+        $this->modalOpen = ! $this->modalOpen;
+    }
+
+    public function savePage()
+    {
+        //
+    }
 }

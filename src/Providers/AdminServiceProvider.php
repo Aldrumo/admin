@@ -5,6 +5,7 @@ namespace Aldrumo\Admin\Providers;
 use Aldrumo\Admin\AdminManager;
 use Aldrumo\Admin\Contracts\AdminManager as AdminManagerContract;
 use Aldrumo\Admin\Http\Livewire\Pages\CreatePage;
+use Aldrumo\Admin\Http\Livewire\Pages\EditPage;
 use Aldrumo\Admin\Http\Livewire\PagesAdmin;
 use Aldrumo\Admin\Http\Middleware;
 use Aldrumo\Admin\Manager\MenuItem;
@@ -47,6 +48,7 @@ class AdminServiceProvider extends ServiceProvider
     {
         Livewire::component('pages-admin', PagesAdmin::class);
         Livewire::component('create-page', CreatePage::class);
+        Livewire::component('edit-page', EditPage::class);
     }
 
     protected function bootMenu()
