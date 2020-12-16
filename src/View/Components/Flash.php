@@ -1,6 +1,6 @@
 <?php
 
-namespace Aldrumo\Core\View\Components;
+namespace Aldrumo\Aldrumo\View\Components;
 
 use Illuminate\View\Component;
 
