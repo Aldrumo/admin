@@ -14,8 +14,7 @@ class PageRenderController
 
         app()->bind(
             'inEditor',
-            function ()
-            {
+            function () {
                 return true;
             }
         );
