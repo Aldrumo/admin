@@ -12,7 +12,10 @@ class PageRenderController
     {
         $page = Page::findOrFail($id);
 
-        app()->bind('inEditor', function () { return true; });
+        app()->bind(
+            'inEditor',
+            function () { return true; }
+        );
 
         return view(
             $page->template,
