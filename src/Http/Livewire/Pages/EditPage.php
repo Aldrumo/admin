@@ -8,6 +8,8 @@ class EditPage extends Component
 {
     public $page;
 
+    public $blocks = [];
+
     public $modalOpen = false;
 
     public function mount()
