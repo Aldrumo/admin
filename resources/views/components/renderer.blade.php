@@ -1,7 +1,5 @@
 @if ($inEditor)
-<div class="content-editor">
-@endif
+<div class="content-editor">{{ $slot }}</div>
+@else
 {{ $slot }}
-@if ($inEditor)
-</div>
 @endif

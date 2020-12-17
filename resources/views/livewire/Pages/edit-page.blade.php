@@ -15,14 +15,14 @@
                                 {{ $page->title }}
                             </h5>
                             <div class="flex items-center justify-end">
-                                <button type="button" class="inline-block font-normal text-center px-3 py-2 leading-normal text-base rounded cursor-pointer text-white bg-gray-600 mr-2" wire:click="toggleModel">
+                                <button type="button" class="inline-block font-normal text-center px-3 py-2 leading-normal text-base rounded cursor-pointer text-white bg-gray-600 hover:bg-gray-500 mr-2" wire:click="toggleModel">
                                     {{ __('Cancel') }}
                                 </button>
 
                                 <div>
-                                    <button @click.prevent="processPage()" type="button" class="inline-block
+                                    <button @click.prevent="processPage($wire)" type="button" class="inline-block
                                     font-normal text-center px-3 py-2 leading-normal text-base rounded cursor-pointer
-                                    text-white bg-indigo-600">
+                                    text-white bg-indigo-600 hover:bg-indigo-500">
                                         {{ __('Save') }}
                                     </button>
                                 </div>
@@ -44,13 +44,13 @@
     @endif
 </div>
 <script>
-    function processPage()
+    function processPage($wire)
     {
         var iframe = document.getElementById('content-editor');
         var blocks = iframe.contentDocument.getElementsByClassName('content-editor');
 
         for (let block of blocks) {
-            console.log(block.innerHTML);
+            $wire.call('processBlock', 'test', block.innerHTML);
         }
     };
 </script>

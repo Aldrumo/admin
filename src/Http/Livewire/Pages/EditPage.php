@@ -31,4 +31,12 @@ class EditPage extends Component
     {
         //
     }
+
+    public function processBlock($key, $content)
+    {
+        $this->blocks[] = [
+            'key' => $key,
+            'content' => $content
+        ];
+    }
 }
