@@ -1,4 +1,4 @@
-<div class="inline" wire:dosave="alert('test')">
+<div class="inline">
     <button class="p-2 bg-indigo-600 rounded-md text-white font-medium tracking-wide hover:bg-indigo-500 ml-3"
         wire:click="toggleModel">
         <x-heroicon-s-pencil-alt class="w-4 h-4"/>
@@ -9,7 +9,7 @@
              id="editPageModel-{{ $page->id }}" tabindex="-1" role="dialog">
             <div class="modal-dialog relative w-full h-full pointer-events-none max-w-full mx-auto px-4 sm:px-0" role="document">
                 <div class="relative flex flex-col w-full h-full pointer-events-auto bg-white border border-gray-300">
-                    <form @submit.prevent="processPage()" class="h-full">
+                    <form wire:submit.prevent="savePage" class="h-full">
                         <div class="flex items-start justify-between p-4 border-b border-gray-300 rounded-t">
                             <h5 class="mb-0 text-xl pt-2 leading-normal">
                                 {{ $page->title }}
@@ -22,7 +22,7 @@
                                 <div wire:loading.remove wire:target="savePage">
                                     <button type="submit" class="inline-block
                                     font-normal text-center px-3 py-2 leading-normal text-base rounded cursor-pointer
-                                    text-white bg-indigo-600 hover:bg-indigo-500">
+                                    text-white bg-indigo-600 hover:bg-indigo-500" @click="processPage();">
                                         {{ __('Save') }}
                                     </button>
                                 </div>
@@ -48,8 +48,6 @@
             return {
                 blocks: @entangle('blocks'),
                 processPage() {
-
-                    console.log(livewire);
                     let iframe = document.getElementById('content-editor');
                     let editors = iframe.contentDocument.getElementsByClassName('content-editor');
 
@@ -60,7 +58,7 @@
                         });
                     }
 
-                    Livewire.emit('dosave');
+                    return true;
                 }
             }
         };
