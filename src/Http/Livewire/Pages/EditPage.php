@@ -2,6 +2,7 @@
 
 namespace Aldrumo\Admin\Http\Livewire\Pages;
 
+use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 
 class EditPage extends Component
@@ -11,11 +12,6 @@ class EditPage extends Component
     public $blocks = [];
 
     public $modalOpen = false;
-
-    public function mount()
-    {
-        //
-    }
 
     public function render()
     {
@@ -29,7 +25,8 @@ class EditPage extends Component
 
     public function savePage()
     {
-        //
+        Log::info($this->page);
+        Log::info($this->blocks);
     }
 
     public function processBlock($key, $content)
