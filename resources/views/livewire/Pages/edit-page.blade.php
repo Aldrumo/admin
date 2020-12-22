@@ -53,7 +53,7 @@
 
                     for (let editor of editors) {
                         this.blocks.push({
-                            'key': 'test',
+                            'key': editor.id,
                             'content': editor.innerHTML
                         });
                     }
