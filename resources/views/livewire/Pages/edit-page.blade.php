@@ -43,6 +43,16 @@
         </div>
     @endif
     <script>
+        function initEditors()
+        {
+            BalloonEditor
+                // .create( document.getElementById('content-editor').contentDocument.querySelector('.content-editor') )
+                .create( document.querySelector('.tester') )
+                .catch( error => {
+                    console.error( error );
+                } );
+        }
+
         function editPage()
         {
             return {

@@ -5,6 +5,7 @@ namespace Aldrumo\Admin\Http\Controllers\Api;
 use Aldrumo\Core\Models\Page;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\View;
 
 class PageRenderController
 {
@@ -12,12 +13,7 @@ class PageRenderController
     {
         $page = Page::findOrFail($id);
 
-        app()->bind(
-            'inEditor',
-            function () {
-                return true;
-            }
-        );
+        View::share('inEditor', true);
 
         return view(
             $page->template,

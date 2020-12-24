@@ -56,4 +56,6 @@
         @endforelse
         </tbody>
     </table>
+{{--    <script src="https://cdn.ckeditor.com/ckeditor5/24.0.0/inline/ckeditor.js"></script>--}}
+{{--    <script src="https://cdn.ckeditor.com/ckeditor5/24.0.0/balloon/ckeditor.js"></script>--}}
 </div>
