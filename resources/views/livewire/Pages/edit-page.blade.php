@@ -63,7 +63,7 @@
 
                     for (let editor of editors) {
                         this.blocks.push({
-                            'key': editor.id,
+                            'slug': editor.id,
                             'content': editor.innerHTML
                         });
                     }

@@ -25,15 +25,17 @@ class EditPage extends Component
 
     public function savePage()
     {
-        Log::info($this->page);
-        Log::info($this->blocks);
-    }
+        try {
+            $this->page->save();
 
-    public function processBlock($key, $content)
-    {
-        $this->blocks[] = [
-            'key' => $key,
-            'content' => $content
-        ];
+            $this->page->saveBlocks(collect($this->blocks));
+        } catch (\Exception $e) {
+            // error
+            Log::info($e);
+        }
+
+        Log::info('Page Saved');
+        // close model
+        // show success msg on listing
     }
 }
