@@ -11,9 +11,13 @@ class PageRenderController
 {
     public function __invoke(Request $request, int $id)
     {
-        $page = Page::findOrFail($id);
+        $page = Page::with('blocks')
+            ->findOrFail($id);
 
-        View::share('inEditor', true);
+        View::share([
+            'inEditor' => true,
+            'contentBlocks' => $page->blocks,
+        ]);
 
         return view(
             $page->template,
