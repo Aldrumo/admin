@@ -35,8 +35,6 @@ class EditPage extends Component
         }
 
         $this->reset(['blocks', 'modalOpen']);
-        Log::info('Page Saved');
-        // close model
-        // show success msg on listing
+        $this->emitTo('pages-admin', 'pageSaved');
     }
 }

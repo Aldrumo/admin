@@ -1,4 +1,8 @@
 <div>
+    <div class="block w-full">
+        <x-Admin::flash></x-Admin::flash>
+    </div>
+
     <table class="min-w-full">
         <thead>
         <tr>

@@ -72,12 +72,7 @@ class CreatePage extends Component
             );
         }
 
-        $this->reset(
-            [
-                'page',
-            ]
-        );
-
+        $this->reset(['page',]);
         $this->emitTo('pages-admin', 'pageCreated');
 
         return session()->flash(
