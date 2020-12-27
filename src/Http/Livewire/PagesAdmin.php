@@ -10,7 +10,7 @@ class PagesAdmin extends Component
     public $pages;
 
     protected $listeners = [
-        'pageCreated' => 'loadPages',
+        'pageCreated',
         'pageSaved'
     ];
 
@@ -22,6 +22,13 @@ class PagesAdmin extends Component
     public function loadPages()
     {
         $this->pages = Page::orderBy('title', 'asc')->get();
+    }
+
+    public function pageCreated(int $pageId)
+    {
+        $this->loadPages();
+
+        $this->emitTo('edit-page', 'newPage', $pageId);
     }
 
     public function pageSaved()

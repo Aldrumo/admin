@@ -72,12 +72,16 @@ class CreatePage extends Component
             );
         }
 
-        $this->reset(['page',]);
-        $this->emitTo('pages-admin', 'pageCreated');
-
-        return session()->flash(
-            'success',
-            __('Page created, redirecting to editor...')
+        $this->reset(['page', 'modalOpen']);
+        $this->emitTo(
+            'pages-admin',
+            'pageCreated',
+            $page->id
         );
+
+//        return session()->flash(
+//            'success',
+//            __('Page created, loading editor...')
+//        );
     }
 }

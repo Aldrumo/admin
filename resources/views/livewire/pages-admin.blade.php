@@ -1,5 +1,5 @@
 <div>
-    <div class="block w-full">
+<div class="block w-full">
         <x-Admin::flash></x-Admin::flash>
     </div>
 
@@ -42,7 +42,7 @@
                 </td>
 
                 <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
-                    <livewire:edit-page :page="$page" :key="'edit-' . $page->id"></livewire:edit-page>
+                    <livewire:edit-page :page="$page" :key="'edit-' . $page->id . '-' . time()"></livewire:edit-page>
 
                     <button class="p-2 bg-red-600 rounded-md text-white font-medium tracking-wide hover:bg-red-500 ml-3">
                         <x-heroicon-s-trash class="w-4 h-4"/>
@@ -60,6 +60,4 @@
         @endforelse
         </tbody>
     </table>
-{{--    <script src="https://cdn.ckeditor.com/ckeditor5/24.0.0/inline/ckeditor.js"></script>--}}
-{{--    <script src="https://cdn.ckeditor.com/ckeditor5/24.0.0/balloon/ckeditor.js"></script>--}}
 </div>
