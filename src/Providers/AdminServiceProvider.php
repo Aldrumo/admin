@@ -5,7 +5,7 @@ namespace Aldrumo\Admin\Providers;
 use Aldrumo\Admin\AdminManager;
 use Aldrumo\Admin\Contracts\AdminManager as AdminManagerContract;
 use Aldrumo\Admin\Http\Livewire\Pages\CreatePage;
-use Aldrumo\Admin\Http\Livewire\PagesAdmin;
+use Aldrumo\Admin\Http\Livewire\Pages\PagesAdmin;
 use Aldrumo\Admin\Http\Middleware;
 use Aldrumo\Admin\Manager\MenuItem;
 use Aldrumo\Admin\View\Composers\AdminMenu;

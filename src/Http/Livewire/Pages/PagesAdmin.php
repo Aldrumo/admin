@@ -1,6 +1,6 @@
 <?php
 
-namespace Aldrumo\Admin\Http\Livewire;
+namespace Aldrumo\Admin\Http\Livewire\Pages;
 
 use Aldrumo\Core\Models\Page;
 use Illuminate\Support\Facades\Log;
