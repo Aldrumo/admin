@@ -67,7 +67,7 @@ class CreatePage extends Component
             $page->save();
         } catch (\Exception $e) {
             return session()->flash(
-                'error',
+                'modal.error',
                 __('There was a problem creating the page.')
             );
         }

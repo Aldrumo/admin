@@ -10,6 +10,8 @@
                         </h5>
                     </div>
                     <div class="relative p-4">
+                        <x-Admin::flash prefix="modal."></x-Admin::flash>
+
                         <p>{{ __('This action is unreversable and will remove the page and all associated data.') }}</p>
 
                         <div class="mt-3 flex">

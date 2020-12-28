@@ -64,7 +64,7 @@ class PagesAdmin extends Component
             $this->editPage->saveBlocks(collect($this->blocks));
         } catch (\Exception $e) {
             return session()->flash(
-                'error',
+                'modal.error',
                 __('Could not save the page.')
             );
         }
@@ -93,11 +93,10 @@ class PagesAdmin extends Component
     public function confirmDelete()
     {
         try {
-            //$this->deletePage->delete();
-            throw new \Exception('test');
+            $this->deletePage->delete();
         } catch (\Exception $e) {
             return session()->flash(
-                'error',
+                'modal.error',
                 __('Could not delete the page.')
             );
         }

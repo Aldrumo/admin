@@ -1,18 +1,27 @@
 <?php
 
-namespace Aldrumo\Aldrumo\View\Components;
+namespace Aldrumo\Admin\View\Components;
 
+use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class Flash extends Component
 {
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\Contracts\View\View|string
-     */
-    public function render()
+    /** @var string|null */
+    public $prefix;
+
+    public function __construct(?string $prefix = null)
     {
-        return view('Admin::components.flash');
+        $this->prefix = $prefix;
+    }
+
+    public function render(): View
+    {
+        return view(
+            'Admin::components.flash',
+            [
+                'prefix' => $this->prefix ?? '',
+            ]
+        );
     }
 }

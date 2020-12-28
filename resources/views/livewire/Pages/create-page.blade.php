@@ -33,7 +33,7 @@
                         </div>
                         <div class="relative p-4">
                             <div class="block w-full">
-                                <x-Admin::flash></x-Admin::flash>
+                                <x-Admin::flash prefix="modal."></x-Admin::flash>
                             </div>
                             <div class="block w-full">
                                 <x-jet-label for="title" value="{{ __('Page Title') }}" class="font-bold text-base" />
