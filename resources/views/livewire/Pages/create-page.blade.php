@@ -1,6 +1,6 @@
 <div>
     <button class="px-6 py-3 bg-indigo-600 rounded-md text-white font-medium tracking-wide hover:bg-indigo-500"
-        wire:click="toggleModel">
+        wire:click="toggleModal">
         New Page
     </button>
 
@@ -15,7 +15,7 @@
                                 {{ __('New Page') }}
                             </h5>
                             <div class="flex items-center justify-end">
-                                <button type="button" class="inline-block font-normal text-center px-3 py-2 leading-normal text-base rounded cursor-pointer text-white bg-gray-600 mr-2" wire:click="toggleModel">
+                                <button type="button" class="inline-block font-normal text-center px-3 py-2 leading-normal text-base rounded cursor-pointer text-white bg-gray-600 mr-2" wire:click="toggleModal">
                                     {{ __('Cancel') }}
                                 </button>
 

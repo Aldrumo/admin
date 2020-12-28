@@ -16,6 +16,10 @@ class PagesAdmin extends Component
 
     public $blocks = [];
 
+    public $deleteModal = false;
+
+    public $deletePage;
+
     protected $listeners = [
         'pageCreated'
     ];
@@ -35,9 +39,9 @@ class PagesAdmin extends Component
         $this->pages = Page::orderBy('title', 'asc')->get();
     }
 
-    public function closeModel()
+    public function closeModal()
     {
-        $this->reset(['editModel', 'editPage']);
+        $this->reset(['editModel', 'editPage', 'deleteModal', 'deletePage']);
     }
 
     public function editPage($pageId)
@@ -59,9 +63,10 @@ class PagesAdmin extends Component
 
             $this->editPage->saveBlocks(collect($this->blocks));
         } catch (\Exception $e) {
-            // error
-            Log::info($e);
-            return;
+            return session()->flash(
+                'error',
+                __('Could not save the page.')
+            );
         }
 
         $this->reset(['blocks', 'editModel', 'editPage']);
@@ -70,6 +75,39 @@ class PagesAdmin extends Component
         session()->flash(
             'success',
             __('Page has been saved successfully.')
+        );
+    }
+
+    public function deletePage($pageId)
+    {
+        $page = $this->pages->where('id', $pageId)->first();
+
+        if ($page === null) {
+            $page = Page::where('id', $pageId)->first();
+        }
+
+        $this->deletePage = $page;
+        $this->deleteModal = true;
+    }
+
+    public function confirmDelete()
+    {
+        try {
+            //$this->deletePage->delete();
+            throw new \Exception('test');
+        } catch (\Exception $e) {
+            return session()->flash(
+                'error',
+                __('Could not delete the page.')
+            );
+        }
+
+        $this->reset(['deleteModal', 'deletePage']);
+        $this->loadPages();
+
+        session()->flash(
+            'success',
+            __('Page has been deleted.')
         );
     }
 

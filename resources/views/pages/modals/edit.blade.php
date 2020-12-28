@@ -9,7 +9,7 @@
                             {{ $editPage->title }}
                         </h5>
                         <div class="flex items-center justify-end">
-                            <button type="button" class="inline-block font-normal text-center px-3 py-2 leading-normal text-base rounded cursor-pointer text-white bg-gray-600 hover:bg-gray-500 mr-2" wire:click="closeModel">
+                            <button type="button" class="inline-block font-normal text-center px-3 py-2 leading-normal text-base rounded cursor-pointer text-white bg-gray-600 hover:bg-gray-500 mr-2" wire:click="closeModal">
                                 {{ __('Cancel') }}
                             </button>
 

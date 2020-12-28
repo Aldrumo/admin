@@ -45,7 +45,7 @@ class CreatePage extends Component
         return view('Admin::livewire.pages.create-page');
     }
 
-    public function toggleModel()
+    public function toggleModal()
     {
         $this->modalOpen = ! $this->modalOpen;
     }
@@ -78,10 +78,5 @@ class CreatePage extends Component
             'pageCreated',
             $page->id
         );
-
-//        return session()->flash(
-//            'success',
-//            __('Page created, loading editor...')
-//        );
     }
 }

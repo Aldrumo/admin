@@ -47,7 +47,8 @@
                         <x-heroicon-s-pencil-alt class="w-4 h-4"/>
                     </button>
 
-                    <button class="p-2 bg-red-600 rounded-md text-white font-medium tracking-wide hover:bg-red-500 ml-3">
+                    <button class="p-2 bg-red-600 rounded-md text-white font-medium tracking-wide hover:bg-red-500 ml-3"
+                        wire:click="deletePage({{ $page->id }})">
                         <x-heroicon-s-trash class="w-4 h-4"/>
                     </button>
                 </td>
@@ -65,6 +66,7 @@
     </table>
 
     @include('Admin::pages.modals.edit')
+    @include('Admin::pages.modals.delete')
     <script>
         function editPage()
         {
