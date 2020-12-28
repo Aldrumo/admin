@@ -27,6 +27,9 @@
                             </div>
                         </div>
                     </div>
+                    <div class="block w-full text-center">
+                        <x-Admin::flash></x-Admin::flash>
+                    </div>
                     <div class="relative w-full h-full text-left">
                         <iframe id="content-editor" class="w-full h-full"
                                 src="{{ route('admin.api.page.renderer', ['id' => $editPage->id]) }}"></iframe>
