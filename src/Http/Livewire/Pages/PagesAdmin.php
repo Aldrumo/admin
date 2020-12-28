@@ -31,7 +31,7 @@ class PagesAdmin extends Component
 
     public function render()
     {
-        return view('Admin::livewire.pages-admin');
+        return view('Admin::livewire.pages.pages-admin');
     }
 
     public function loadPages()
