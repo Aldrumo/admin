@@ -77,6 +77,11 @@ class PagesAdmin extends Component
     {
         $this->loadPages();
 
+        session()->flash(
+            'success',
+            __('Page has been created successfully.')
+        );
+
         $this->editPage($pageId);
     }
 }
