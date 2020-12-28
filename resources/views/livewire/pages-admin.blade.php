@@ -42,7 +42,10 @@
                 </td>
 
                 <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
-                    <livewire:edit-page :page="$page" :key="'edit-' . $page->id . '-' . time()"></livewire:edit-page>
+                    <button class="p-2 bg-indigo-600 rounded-md text-white font-medium tracking-wide hover:bg-indigo-500 ml-3"
+                        wire:click="editPage({{ $page->id }})">
+                        <x-heroicon-s-pencil-alt class="w-4 h-4"/>
+                    </button>
 
                     <button class="p-2 bg-red-600 rounded-md text-white font-medium tracking-wide hover:bg-red-500 ml-3">
                         <x-heroicon-s-trash class="w-4 h-4"/>
@@ -60,4 +63,27 @@
         @endforelse
         </tbody>
     </table>
+
+    @include('Admin::pages.modals.edit')
+    <script>
+        function editPage()
+        {
+            return {
+                blocks: @entangle('blocks'),
+                processPage() {
+                    let iframe = document.getElementById('content-editor');
+                    let editors = iframe.contentDocument.getElementsByClassName('content-editor');
+
+                    for (let editor of editors) {
+                        this.blocks.push({
+                            'slug': editor.id,
+                            'content': editor.innerHTML
+                        });
+                    }
+
+                    return true;
+                }
+            }
+        };
+    </script>
 </div>

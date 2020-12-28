@@ -3,15 +3,21 @@
 namespace Aldrumo\Admin\Http\Livewire;
 
 use Aldrumo\Core\Models\Page;
+use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 
 class PagesAdmin extends Component
 {
     public $pages;
 
+    public $editModel = false;
+
+    public $editPage;
+
+    public $blocks = [];
+
     protected $listeners = [
-        'pageCreated',
-        'pageSaved'
+        'pageCreated'
     ];
 
     public function mount()
@@ -19,20 +25,46 @@ class PagesAdmin extends Component
         $this->loadPages();
     }
 
+    public function render()
+    {
+        return view('Admin::livewire.pages-admin');
+    }
+
     public function loadPages()
     {
         $this->pages = Page::orderBy('title', 'asc')->get();
     }
 
-    public function pageCreated(int $pageId)
+    public function closeModel()
     {
-        $this->loadPages();
-
-        $this->emitTo('edit-page', 'newPage', $pageId);
+        $this->reset(['editModel', 'editPage']);
     }
 
-    public function pageSaved()
+    public function editPage($pageId)
     {
+        $page = $this->pages->where('id', $pageId)->first();
+
+        if ($page === null) {
+            $page = Page::where('id', $pageId)->first();
+        }
+
+        $this->editPage = $page;
+        $this->editModel = true;
+    }
+
+    public function savePage()
+    {
+        try {
+            $this->editPage->save();
+
+            $this->editPage->saveBlocks(collect($this->blocks));
+        } catch (\Exception $e) {
+            // error
+            Log::info($e);
+            return;
+        }
+
+        $this->reset(['blocks', 'editModel', 'editPage']);
         $this->loadPages();
 
         session()->flash(
@@ -41,8 +73,10 @@ class PagesAdmin extends Component
         );
     }
 
-    public function render()
+    public function pageCreated(int $pageId)
     {
-        return view('Admin::livewire.pages-admin');
+        $this->loadPages();
+
+        $this->editPage($pageId);
     }
 }
