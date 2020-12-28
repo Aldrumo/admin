@@ -46,13 +46,7 @@ class PagesAdmin extends Component
 
     public function editPage($pageId)
     {
-        $page = $this->pages->where('id', $pageId)->first();
-
-        if ($page === null) {
-            $page = Page::where('id', $pageId)->first();
-        }
-
-        $this->editPage = $page;
+        $this->editPage = $this->findPage($pageId);
         $this->editModel = true;
     }
 
@@ -80,13 +74,7 @@ class PagesAdmin extends Component
 
     public function deletePage($pageId)
     {
-        $page = $this->pages->where('id', $pageId)->first();
-
-        if ($page === null) {
-            $page = Page::where('id', $pageId)->first();
-        }
-
-        $this->deletePage = $page;
+        $this->deletePage = $this->findPage($pageId);
         $this->deleteModal = true;
     }
 
@@ -120,5 +108,16 @@ class PagesAdmin extends Component
         );
 
         $this->editPage($pageId);
+    }
+
+    protected function findPage(int $pageId): Page
+    {
+        $page = $this->pages->where('id', $pageId)->first();
+
+        if ($page === null) {
+            $page = Page::where('id', $pageId)->first();
+        }
+
+        return $page;
     }
 }
