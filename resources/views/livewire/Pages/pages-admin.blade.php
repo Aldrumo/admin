@@ -31,10 +31,11 @@
 
                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                     @if ($page->is_active)
-                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Active</span>
+                        <x-bi-toggle2-on class="w-8 h-8 text-green-800 cursor-pointer hover:text-red-800"
+                            wire:click="toggleActive({{ $page->id }})" />
                     @else
-                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">Inactive</span>
-                        <x-heroicon-s-pencil-alt class="w-4 h-4"/>
+                        <x-bi-toggle2-off class="w-8 h-8 text-red-800 cursor-pointer hover:text-green-800"
+                            wire:click="toggleActive({{ $page->id }})" />
                     @endif
                 </td>
 

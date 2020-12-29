@@ -98,6 +98,31 @@ class PagesAdmin extends Component
         );
     }
 
+    public function toggleActive($pageId)
+    {
+        $page = $this->findPage($pageId);
+        $page->is_active = ! $page->is_active;
+
+        try {
+            $page->save();
+        } catch (\Exception $e) {
+            return session()->flash(
+                'error',
+                $page->is_active === true ?
+                    __('There was a problem activating the page') :
+                    __('There was a problem deactivating the page')
+            );
+        }
+
+        $this->loadPages();
+        return session()->flash(
+            'success',
+            $page->is_active === true ?
+                __('Page activated') :
+                __('Page deactivated')
+        );
+    }
+
     public function pageCreated(int $pageId)
     {
         $this->loadPages();
