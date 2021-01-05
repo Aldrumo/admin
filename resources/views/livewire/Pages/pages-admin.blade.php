@@ -58,7 +58,7 @@
         @empty
             <tr>
                 <td colspan="5">
-                    <div class="text-sm leading-5 font-medium text-gray-900">
+                    <div class="text-md leading-5 p-3 font-medium text-gray-900">
                         Create your first page to get started with Aldrumo!
                     </div>
                 </td>
