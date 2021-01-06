@@ -31,13 +31,17 @@ class InjectEditor
 
     public function editorJs(): string
     {
-        return '<script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>' .
+        return '<script src="/tinymce/tinymce.min.js"></script>' .
             '<script>
                 document.addEventListener("DOMContentLoaded", function(event) {
                     let editors = document.querySelectorAll(".content-editor");
 
                     for (let i = 0; i < editors.length; ++i) {
-                        CKEDITOR.inline(editors[i]);
+                        tinymce.init({
+                            selector: ".content-editor",
+                            inline: true,
+                            menubar: false,
+                        });
                     }
                 });
             </script>';
