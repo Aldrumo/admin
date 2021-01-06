@@ -3,6 +3,7 @@
 namespace Aldrumo\Admin\Http\Livewire\Pages;
 
 use Aldrumo\Core\Models\Page;
+use Aldrumo\RouteLoader\Generator;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 
@@ -64,6 +65,7 @@ class PagesAdmin extends Component
         }
 
         $this->reset(['blocks', 'editModel', 'editPage']);
+        $this->clearRoutes();
         $this->loadPages();
 
         session()->flash(
@@ -90,6 +92,7 @@ class PagesAdmin extends Component
         }
 
         $this->reset(['deleteModal', 'deletePage']);
+        $this->clearRoutes();
         $this->loadPages();
 
         session()->flash(
@@ -114,7 +117,9 @@ class PagesAdmin extends Component
             );
         }
 
+        $this->clearRoutes();
         $this->loadPages();
+
         return session()->flash(
             'success',
             $page->is_active === true ?
@@ -125,10 +130,12 @@ class PagesAdmin extends Component
 
     public function pageCreated(int $pageId)
     {
+        $this->clearRoutes();
+
         $this->loadPages();
 
         session()->flash(
-            'success',
+            'modal.success',
             __('Page has been created successfully.')
         );
 
@@ -144,5 +151,10 @@ class PagesAdmin extends Component
         }
 
         return $page;
+    }
+
+    protected function clearRoutes()
+    {
+        resolve(Generator::class)->regenerateRoutes();
     }
 }
