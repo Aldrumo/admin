@@ -86,7 +86,7 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            @foreach ($adminMenu as $item)
+            @foreach ($adminMenu ?? '' as $item)
                 @include('Admin::nav-item', ['tag' => 'x-jet-responsive-nav-link'])
             @endforeach
         </div>

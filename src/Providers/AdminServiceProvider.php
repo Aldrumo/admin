@@ -4,6 +4,7 @@ namespace Aldrumo\Admin\Providers;
 
 use Aldrumo\Admin\AdminManager;
 use Aldrumo\Admin\Contracts\AdminManager as AdminManagerContract;
+use Aldrumo\Admin\Http\Livewire\NavigationMenu;
 use Aldrumo\Admin\Http\Livewire\Pages\CreatePage;
 use Aldrumo\Admin\Http\Livewire\Pages\PagesAdmin;
 use Aldrumo\Admin\Http\Middleware;
@@ -45,6 +46,7 @@ class AdminServiceProvider extends ServiceProvider
 
     protected function bootLivewire()
     {
+        Livewire::component('nav-menu', NavigationMenu::class);
         Livewire::component('pages-admin', PagesAdmin::class);
         Livewire::component('create-page', CreatePage::class);
     }
@@ -94,7 +96,7 @@ class AdminServiceProvider extends ServiceProvider
     protected function bootViewComposers()
     {
         View::composer(
-            'Admin::navigation-dropdown',
+            'Admin::navigation-menu',
             AdminMenu::class
         );
     }
