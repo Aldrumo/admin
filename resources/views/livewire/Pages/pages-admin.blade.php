@@ -39,12 +39,12 @@
                     @endif
                 </td>
 
-                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-900">
                     {{ $page->updated_at->format('M jS Y, H:i') }}
                 </td>
 
                 <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
-                    <button class="p-2 bg-indigo-600 rounded-md text-white font-medium tracking-wide hover:bg-indigo-500 ml-3"
+                    <button class="p-2 bg-blue-900 rounded-md text-white font-medium tracking-wide hover:bg-blue-700 ml-3"
                         wire:click="editPage({{ $page->id }})">
                         <x-heroicon-s-pencil-alt class="w-4 h-4"/>
                     </button>
