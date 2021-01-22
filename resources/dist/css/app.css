@@ -32885,6 +32885,16 @@ select {
           animation: bounce 1s infinite;
 }
 
+a {
+  --tw-text-opacity: 1;
+  color: rgba(20, 33, 61, var(--tw-text-opacity))
+}
+
+a:hover {
+  --tw-text-opacity: 1;
+  color: rgba(30, 58, 138, var(--tw-text-opacity))
+}
+
 .modal {
   z-index: 1072;
   display: none;
