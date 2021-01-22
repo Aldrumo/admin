@@ -20,7 +20,7 @@
                 Aldrumo, while still in it's infancy, has a growing set of documentation. For help getting started or building out advanced features make sure you read it.
             </div>
 
-            <a href="https://aldrumo.com/docs" class="text-blue-500 hover:text-blue-950">
+            <a href="https://aldrumo.com/docs" class="text-green-600 hover:text-green-700">
                 <div class="mt-3 flex items-center text-sm font-semibold">
                     <div>Explore the documentation</div>
 
@@ -43,7 +43,7 @@
                 Need help or want to ask a question then please post in the Aldrumo Core Discussions area in Github!
             </div>
 
-            <a href="https://github.com/Aldrumo/core/discussions" class="text-blue-500 hover:text-blue-950">
+            <a href="https://github.com/Aldrumo/core/discussions" class="text-green-600 hover:text-green-700">
                 <div class="mt-3 flex items-center text-sm font-semibold">
                     <div>Ask a question!</div>
 
@@ -67,7 +67,7 @@
                 Post up a report on Github and we'll take a look!
             </div>
 
-            <a href="https://github.com/Aldrumo/core/issues" class="text-blue-500 hover:text-blue-950">
+            <a href="https://github.com/Aldrumo/core/issues" class="text-green-600 hover:text-green-700">
                 <div class="mt-3 flex items-center text-sm font-semibold">
                     <div>Report a bug!</div>
 
@@ -90,7 +90,7 @@
                 Whether it's Code, Documentation or answering other peoples questions, we welcome all contributions and would love your help building a great CMS and community!
             </div>
 
-            <a href="https://github.com/Aldrumo/" class="text-blue-500 hover:text-blue-950">
+            <a href="https://github.com/Aldrumo/" class="text-green-600 hover:text-green-700">
                 <div class="mt-3 flex items-center text-sm font-semibold">
                     <div>Join in!</div>
 
