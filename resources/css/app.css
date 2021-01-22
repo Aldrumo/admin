@@ -2,6 +2,13 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+a {
+    @apply text-blue-950
+}
+a:hover {
+    @apply text-blue-900
+}
+
 .modal {
     z-index: 1072;
     @apply hidden fixed top-0 left-0 w-full h-full outline-none
