@@ -15,17 +15,17 @@
                         <p>{{ __('This action is unreversable and will remove the page and all associated data.') }}</p>
 
                         <div class="mt-3 flex">
-                            <button type="button" class="inline-block font-normal text-center px-3 py-2 leading-normal text-base rounded cursor-pointer text-white bg-gray-600 mr-2" wire:click="closeModal">
+                            <button type="button" class="inline-block font-normal text-center px-3 py-2 leading-normal text-base rounded cursor-pointer text-blue-950 bg-gray-200 hover:bg-gray-300 mr-2" wire:click="closeModal">
                                 {{ __('No') }}
                             </button>
 
                             <div wire:loading.remove wire:target="confirmDelete">
-                                <button type="submit" class="inline-block font-normal text-center px-3 py-2 leading-normal text-base rounded cursor-pointer text-white bg-indigo-600">
+                                <button type="submit" class="inline-block font-normal text-center px-3 py-2 leading-normal text-base rounded cursor-pointer text-white bg-green-600 hover:bg-green-700">
                                     {{ __('Yes') }}
                                 </button>
                             </div>
                             <div wire:loading wire:target="confirmDelete">
-                                <button disabled type="submit" class="inline-block font-normal text-center px-3 py-2 leading-normal text-base rounded cursor-default text-white bg-indigo-600">
+                                <button disabled type="submit" class="inline-block font-normal text-center px-3 py-2 leading-normal text-base rounded cursor-default text-white bg-green-600 hover:bg-green-700">
                                     {{ __('Yes') }}
                                 </button>
                             </div>

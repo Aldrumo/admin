@@ -9,19 +9,20 @@
                             {{ $editPage->title }}
                         </h5>
                         <div class="flex items-center justify-end">
-                            <button type="button" class="inline-block font-normal text-center px-3 py-2 leading-normal text-base rounded cursor-pointer text-white bg-gray-600 hover:bg-gray-500 mr-2" wire:click="closeModal">
+                            <button type="button" class="inline-block font-normal text-center px-3 py-2 leading-normal text-base rounded cursor-pointer text-blue-950 bg-gray-200 hover:bg-gray-300 mr-2" wire:click="closeModal">
                                 {{ __('Cancel') }}
                             </button>
 
                             <div wire:loading.remove wire:target="savePage">
                                 <button type="submit" class="inline-block
                                     font-normal text-center px-3 py-2 leading-normal text-base rounded cursor-pointer
-                                    text-white bg-indigo-600 hover:bg-indigo-500" @click="processPage();">
+                                    text-white bg-green-600 hover:bg-green-700" @click="processPage();">
                                     {{ __('Save') }}
                                 </button>
                             </div>
                             <div wire:loading wire:target="savePage">
-                                <button disabled type="submit" class="inline-block font-normal text-center px-3 py-2 leading-normal text-base rounded cursor-default text-white bg-indigo-600">
+                                <button disabled type="submit" class="inline-block font-normal text-center px-3 py-2
+                                leading-normal text-base rounded cursor-default text-white bg-green-600 hover:bg-green-700">
                                     {{ __('Saving') }}
                                 </button>
                             </div>

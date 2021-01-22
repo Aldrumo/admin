@@ -1,5 +1,5 @@
 <div>
-    <button class="px-6 py-3 bg-blue-950 rounded-md text-white font-medium tracking-wide hover:bg-indigo-500"
+    <button class="px-6 py-3 bg-green-600 rounded-md text-white font-medium tracking-wide hover:bg-green-700"
         wire:click="toggleModal">
         New Page
     </button>
@@ -15,17 +15,17 @@
                                 {{ __('New Page') }}
                             </h5>
                             <div class="flex items-center justify-end">
-                                <button type="button" class="inline-block font-normal text-center px-3 py-2 leading-normal text-base rounded cursor-pointer text-white bg-gray-600 mr-2" wire:click="toggleModal">
+                                <button type="button" class="inline-block font-normal text-center px-3 py-2 leading-normal text-base rounded cursor-pointer text-blue-950 bg-gray-200 hover:bg-gray-300 mr-2" wire:click="toggleModal">
                                     {{ __('Cancel') }}
                                 </button>
 
                                 <div wire:loading.remove wire:target="createPage">
-                                    <button type="submit" class="inline-block font-normal text-center px-3 py-2 leading-normal text-base rounded cursor-pointer text-white bg-indigo-600">
+                                    <button type="submit" class="inline-block font-normal text-center px-3 py-2 leading-normal text-base rounded cursor-pointer text-white bg-green-600 hover:bg-green-700">
                                         {{ __('Create') }}
                                     </button>
                                 </div>
                                 <div wire:loading wire:target="createPage">
-                                    <button disabled type="submit" class="inline-block font-normal text-center px-3 py-2 leading-normal text-base rounded cursor-default text-white bg-indigo-600">
+                                    <button disabled type="submit" class="inline-block font-normal text-center px-3 py-2 leading-normal text-base rounded cursor-default text-white bg-green-600 hover:bg-green-700">
                                         {{ __('Creating') }}
                                     </button>
                                 </div>

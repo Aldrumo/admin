@@ -31,10 +31,10 @@
 
                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                     @if ($page->is_active)
-                        <x-bi-toggle2-on class="w-8 h-8 text-green-800 cursor-pointer hover:text-red-800"
+                        <x-bi-toggle2-on class="w-8 h-8 text-green-600 cursor-pointer hover:text-red-600"
                             wire:click="toggleActive({{ $page->id }})" />
                     @else
-                        <x-bi-toggle2-off class="w-8 h-8 text-red-800 cursor-pointer hover:text-green-800"
+                        <x-bi-toggle2-off class="w-8 h-8 text-red-600 cursor-pointer hover:text-green-600"
                             wire:click="toggleActive({{ $page->id }})" />
                     @endif
                 </td>
@@ -44,12 +44,12 @@
                 </td>
 
                 <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
-                    <button class="p-2 bg-blue-900 rounded-md text-white font-medium tracking-wide hover:bg-blue-700 ml-3"
+                    <button class="p-2 bg-yellow-500 rounded-md text-blue-950 font-medium tracking-wide hover:bg-yellow-600 ml-3"
                         wire:click="editPage({{ $page->id }})">
                         <x-heroicon-s-pencil-alt class="w-4 h-4"/>
                     </button>
 
-                    <button class="p-2 bg-red-600 rounded-md text-white font-medium tracking-wide hover:bg-red-500 ml-3"
+                    <button class="p-2 bg-red-600 rounded-md text-white font-medium tracking-wide hover:bg-red-700 ml-3"
                         wire:click="deletePage({{ $page->id }})">
                         <x-heroicon-s-trash class="w-4 h-4"/>
                     </button>
