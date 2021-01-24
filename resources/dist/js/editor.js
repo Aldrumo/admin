@@ -65330,13 +65330,13 @@ __webpack_require__(/*! ./theme.js */ "./node_modules/tinymce/themes/silver/them
 /*!********************************!*\
   !*** ./resources/js/editor.js ***!
   \********************************/
+__webpack_require__(/*! tinymce */ "./node_modules/tinymce/tinymce.js");
+
 __webpack_require__(/*! tinymce/themes/silver */ "./node_modules/tinymce/themes/silver/index.js");
 
 __webpack_require__(/*! tinymce/plugins/link */ "./node_modules/tinymce/plugins/link/index.js");
 
 __webpack_require__(/*! tinymce/plugins/image */ "./node_modules/tinymce/plugins/image/index.js");
-
-__webpack_require__(/*! tinymce */ "./node_modules/tinymce/tinymce.js");
 })();
 
 /******/ })()
