@@ -31,7 +31,7 @@ class InjectEditor
 
     public function editorJs(): string
     {
-        return '<script src="/tinymce/tinymce.min.js"></script>' .
+        return '<script src="' . secure_url('aldrumo/admin/js/editor.js') . '"></script>' .
             '<script>
                 document.addEventListener("DOMContentLoaded", function(event) {
                     let editors = document.querySelectorAll(".content-editor");
