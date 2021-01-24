@@ -31,8 +31,7 @@ class InjectEditor
 
     public function editorJs(): string
     {
-        return '<script src="/tinymce/tinymce.min.js"></script>' .
-            '<script>
+        return '<script>
                 document.addEventListener("DOMContentLoaded", function(event) {
                     let editors = document.querySelectorAll(".content-editor");
 
