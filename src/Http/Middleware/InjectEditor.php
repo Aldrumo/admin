@@ -41,8 +41,8 @@ class InjectEditor
                             inline: true,
                             menubar: false,
                             plugins: "link image",
-                            toolbar: "undo redo | alignnone alignleft aligncenter alignright alignjustify |" .
-                             "styleselect | backcolor forecolor | bold italic | link image",
+                            toolbar: "undo redo | alignnone alignleft aligncenter alignright alignjustify |' .
+                             'styleselect | backcolor forecolor | bold italic | link image",
                             image_advtab: true,
                         });
                     }
