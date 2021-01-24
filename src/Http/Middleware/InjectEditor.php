@@ -31,7 +31,8 @@ class InjectEditor
 
     public function editorJs(): string
     {
-        return '<script>
+        return '<script src="/tinymce/tinymce.min.js"></script>' .
+            '<script>
                 document.addEventListener("DOMContentLoaded", function(event) {
                     let editors = document.querySelectorAll(".content-editor");
 
@@ -42,7 +43,7 @@ class InjectEditor
                             menubar: false,
                             plugins: "link image",
                             toolbar: "undo redo | alignnone alignleft aligncenter alignright alignjustify |' .
-                             'styleselect | backcolor forecolor | bold italic | link image",
+                                'styleselect | backcolor forecolor | bold italic | link image",
                             image_advtab: true,
                         });
                     }
