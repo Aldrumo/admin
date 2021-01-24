@@ -13,6 +13,8 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'resources/dist/js')
     .js('resources/js/editor.js', 'resources/dist/js')
+    .copy('node_modules/tinymce/skins', 'resources/dist/js/skins')
+    .copy('node_modules/tinymce/icons', 'resources/dist/js/icons')
     .postCss('resources/css/app.css', 'resources/dist/css', [
         require('postcss-import'),
         require('tailwindcss'),
