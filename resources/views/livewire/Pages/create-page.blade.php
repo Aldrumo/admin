@@ -46,8 +46,8 @@
                                 <select id="template" class="form-input rounded-md shadow-sm mt-1 block w-full" wire:model.lazy="page.template">
                                     <option value="">{{ __('Select Template') }}</option>
 
-                                    @foreach ($templates as $view => $template)
-                                        <option value="{{ $view }}">{{ $template }}</option>
+                                    @foreach ($templates as $template)
+                                        <option value="{{ $template }}">{{ $template }}</option>
                                     @endforeach
                                 </select>
                                 <x-jet-input-error for="page.template" class="mt-2" />
