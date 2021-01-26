@@ -30,7 +30,7 @@ class CreatePage extends Component
             'page.title'    => ['required'],
             'page.template' => [
                 'required',
-                Rule::in($this->templates->keys()),
+                Rule::in($this->templates),
             ],
         ];
     }
