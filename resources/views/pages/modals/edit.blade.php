@@ -4,6 +4,10 @@
         <div class="modal-dialog relative w-full h-full pointer-events-none max-w-full mx-auto px-4 sm:px-0" role="document">
             <div class="relative flex flex-col w-full h-full pointer-events-auto bg-white border border-gray-300">
                 <form wire:submit.prevent="savePage" class="h-full">
+                    <div class="block w-full text-center">
+                        <x-Admin::flash prefix="modal."></x-Admin::flash>
+                    </div>
+
                     <div class="fixed z-50 w-full h-20 border-b border-gray-300 rounded-t">
                         <div class="mt-4 mx-6 flex justify-between ">
                             <h5 class="mb-0 text-xl pt-2 leading-normal">
@@ -29,9 +33,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="block w-full text-center">
-                        <x-Admin::flash prefix="modal."></x-Admin::flash>
                     </div>
                     <div class="relative w-full pt-20 h-screen text-left">
                         <iframe id="content-editor" class="relative w-full h-full"
