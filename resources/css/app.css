@@ -45,3 +45,7 @@ a:hover {
     -webkit-transform: none;
     transform: none;
 }
+
+.content-editor {
+    @apply border-2 border-solid border-red-600;
+}
