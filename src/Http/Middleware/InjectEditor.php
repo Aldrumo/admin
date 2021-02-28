@@ -48,6 +48,9 @@ class InjectEditor
                         });
                     }
                 });
-            </script>';
+            </script>
+            <style>
+                .content-editor:hover { background-color: #FECACA; }
+            </style>';
     }
 }
