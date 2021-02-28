@@ -11,6 +11,7 @@ const mix = require('laravel-mix');
  |
  */
 
+mix.setPublicPath('./')
 mix.js('resources/js/app.js', 'resources/dist/js')
     .js('resources/js/editor.js', 'resources/dist/js')
     .copy('node_modules/tinymce/skins', 'resources/dist/js/skins')
