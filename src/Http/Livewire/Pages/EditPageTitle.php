@@ -22,4 +22,10 @@ class EditPageTitle extends Component
     {
         $this->edit = !$this->edit;
     }
+
+    public function saveTitle()
+    {
+        $this->emitUp('titleUpdated', $this->title);
+        $this->edit = false;
+    }
 }
