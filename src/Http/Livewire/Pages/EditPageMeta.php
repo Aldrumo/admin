@@ -7,15 +7,20 @@ use Aldrumo\RouteLoader\Generator;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 
-class EditPageTitle extends Component
+class EditPageMeta extends Component
 {
     public $edit = false;
 
-    public $title;
+    public Page $page;
+
+    protected $rules = [
+        'page.title' => 'required',
+        'page.slug'  => 'required',
+    ];
 
     public function render()
     {
-        return view('Admin::livewire.pages.edit-page-title');
+        return view('Admin::livewire.pages.edit-page-meta');
     }
 
     public function toggleEdit()
@@ -23,9 +28,10 @@ class EditPageTitle extends Component
         $this->edit = !$this->edit;
     }
 
-    public function saveTitle()
+    public function save()
     {
-        $this->emitUp('titleUpdated', $this->title);
+        $this->page->save();
+        $this->emitUp('metaUpdated');
         $this->edit = false;
     }
 }

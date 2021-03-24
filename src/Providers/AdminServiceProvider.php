@@ -6,7 +6,7 @@ use Aldrumo\Admin\AdminManager;
 use Aldrumo\Admin\Contracts\AdminManager as AdminManagerContract;
 use Aldrumo\Admin\Http\Livewire\NavigationMenu;
 use Aldrumo\Admin\Http\Livewire\Pages\CreatePage;
-use Aldrumo\Admin\Http\Livewire\Pages\EditPageTitle;
+use Aldrumo\Admin\Http\Livewire\Pages\EditPageMeta;
 use Aldrumo\Admin\Http\Livewire\Pages\PagesAdmin;
 use Aldrumo\Admin\Http\Middleware;
 use Aldrumo\Admin\Manager\MenuItem;
@@ -50,7 +50,7 @@ class AdminServiceProvider extends ServiceProvider
         Livewire::component('nav-menu', NavigationMenu::class);
         Livewire::component('pages-admin', PagesAdmin::class);
         Livewire::component('create-page', CreatePage::class);
-        Livewire::component('edit-page-title', EditPageTitle::class);
+        Livewire::component('edit-page-meta', EditPageMeta::class);
     }
 
     protected function bootMenu()
