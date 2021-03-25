@@ -151,6 +151,7 @@ class PagesAdmin extends Component
 
     public function metaUpdated()
     {
+        $this->clearRoutes();
         $this->editPage->refresh();
     }
 
