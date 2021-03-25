@@ -23,7 +23,7 @@ class PagesAdmin extends Component
 
     protected $listeners = [
         'pageCreated',
-        'titleUpdated',
+        'metaUpdated',
     ];
 
     public function mount()
@@ -149,11 +149,10 @@ class PagesAdmin extends Component
         $this->editPage($pageId);
     }
 
-    public function titleUpdated(string $title)
+    public function metaUpdated()
     {
-        info($title);
-        $this->editPage->title = $title;
-        $this->editPage->save();
+        $this->clearRoutes();
+        $this->editPage->refresh();
     }
 
     /**
