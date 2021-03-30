@@ -22,7 +22,8 @@ class PagesAdmin extends Component
     public $deletePage;
 
     protected $listeners = [
-        'pageCreated'
+        'pageCreated',
+        'metaUpdated',
     ];
 
     public function mount()
@@ -54,6 +55,8 @@ class PagesAdmin extends Component
     public function savePage()
     {
         try {
+            info($this->editPage->title);
+
             $this->editPage->save();
 
             $this->editPage->saveBlocks(collect($this->blocks));
@@ -128,6 +131,10 @@ class PagesAdmin extends Component
         );
     }
 
+    /**
+     * EVENT LISTENERS
+     */
+
     public function pageCreated(int $pageId)
     {
         $this->clearRoutes();
@@ -141,6 +148,16 @@ class PagesAdmin extends Component
 
         $this->editPage($pageId);
     }
+
+    public function metaUpdated()
+    {
+        $this->clearRoutes();
+        $this->editPage->refresh();
+    }
+
+    /**
+     * HELPERS
+     */
 
     protected function findPage(int $pageId): Page
     {

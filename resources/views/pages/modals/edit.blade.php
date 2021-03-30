@@ -10,9 +10,9 @@
 
                     <div class="fixed z-50 w-full h-20 border-b border-gray-300 rounded-t">
                         <div class="mt-4 mx-6 flex justify-between ">
-                            <h5 class="mb-0 text-xl pt-2 leading-normal">
-                                {{ $editPage->title }}
-                            </h5>
+
+                            <livewire:edit-page-meta :page="$editPage">
+
                             <div class="flex items-center justify-end">
                                 <button type="button" class="inline-block font-normal text-center px-3 py-2 leading-normal text-base rounded cursor-pointer text-blue-950 bg-gray-200 hover:bg-gray-300 mr-2" wire:click="closeModal">
                                     {{ __('Cancel') }}

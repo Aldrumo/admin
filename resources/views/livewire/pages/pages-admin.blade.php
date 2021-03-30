@@ -1,5 +1,5 @@
 <div>
-<div class="block w-full">
+    <div class="block w-full">
         <x-Admin::flash></x-Admin::flash>
     </div>
 
