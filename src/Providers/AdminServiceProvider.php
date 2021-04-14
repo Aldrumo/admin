@@ -60,6 +60,7 @@ class AdminServiceProvider extends ServiceProvider
             ->push(
                 MenuItem::make('Dashboard', 'admin.dashboard', 0),
                 MenuItem::make('Pages', 'admin.pages.index', 10),
+                MenuItem::make('Themes', 'admin.themes.index', 20),
             );
     }
 

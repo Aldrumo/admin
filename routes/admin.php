@@ -17,3 +17,7 @@ Route::get(
 Route::get('/admin/pages', function () {
     return view('Admin::pages.index');
 })->name('admin.pages.index');
+
+Route::get('/admin/themes', function () {
+    echo 'Theme Admin';
+})->name('admin.themes.index');
