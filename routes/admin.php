@@ -14,10 +14,6 @@ Route::get(
 )->name('admin.api.page.renderer')
 ->middleware(InjectEditor::class);
 
-Route::get('/admin/pages', function () {
-    return view('Admin::pages.index');
-})->name('admin.pages.index');
+Route::view('/admin/pages', 'Admin::pages.index')->name('admin.pages.index');
 
-Route::get('/admin/themes', function () {
-    echo 'Theme Admin';
-})->name('admin.themes.index');
+Route::view('/admin/themes', 'Admin::themes.index')->name('admin.themes.index');
