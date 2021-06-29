@@ -10,13 +10,13 @@
         }
     ],
     "require": {
-        "php": "^7.3",
+        "php": "^7.3|^8.0",
         "livewire/livewire": "^2.0",
         "blade-ui-kit/blade-heroicons": "^0.3",
         "davidhsianturi/blade-bootstrap-icons": "^0.8"
     },
     "require-dev": {
-        "phpunit/phpunit": "^8.5",
+        "phpunit/phpunit": "^9.0",
         "squizlabs/php_codesniffer": "^3.5",
         "orchestra/testbench": "^6.0"
     },
