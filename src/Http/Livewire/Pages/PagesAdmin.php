@@ -55,8 +55,6 @@ class PagesAdmin extends Component
     public function savePage()
     {
         try {
-            info($this->editPage->title);
-
             $this->editPage->save();
 
             $this->editPage->saveBlocks(collect($this->blocks));
